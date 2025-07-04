@@ -7,7 +7,7 @@ public class BulletSpawner : Spawner
     private static BulletSpawner instance;
     public static BulletSpawner Instance { get => instance; }
 
-    public static string bulletTwo = "Bullet_2";
+    public static string bulletOne = "Bullet_1";
 
     protected override void Awake()
     {
@@ -15,6 +15,5 @@ public class BulletSpawner : Spawner
         if (BulletSpawner.instance != null) Debug.LogError("Only 1 BulletSpawner allow to exist");
         BulletSpawner.instance = this;
     }
-
 
 }
