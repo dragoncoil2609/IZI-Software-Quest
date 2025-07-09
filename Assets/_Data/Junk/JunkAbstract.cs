@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class JunkAbstract : SaiMonoBehaviour
 {
+    [Header("Junk Abstract")]
     [SerializeField] protected JunkCtrl junkCtrl;
     public JunkCtrl JunkCtrl { get => junkCtrl; }
 
