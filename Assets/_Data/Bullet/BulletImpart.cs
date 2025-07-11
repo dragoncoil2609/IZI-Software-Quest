@@ -36,6 +36,8 @@ public class BulletImpart : BulletAbstract
 
     protected virtual void OnTriggerEnter(Collider other)
     {
+        if (other.transform.parent == this.bulletCtrl.Shooter) return;
+
         this.bulletCtrl.DamageSender.Send(other.transform);
         this.CreateImpactFX(other);
     }
@@ -48,6 +50,8 @@ public class BulletImpart : BulletAbstract
         Quaternion hitRot = transform.rotation;
         Transform fxImpact = FXSpawner.Instance.Spawn(fxName, hitPos, hitRot);
         fxImpact.gameObject.SetActive(true);
+
+      
     }
 
     protected virtual string GetImpactFX()
