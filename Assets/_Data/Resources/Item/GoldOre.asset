@@ -9,8 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 308bbdb130589a7459beb9252d436e2f, type: 3}
+  m_Script: {fileID: 11500000, guid: 365091feaea86634fa0af634ac8f0320, type: 3}
   m_Name: GoldOre
   m_EditorClassIdentifier: 
   itemCode: 2
+  itemType: 1
   itemName: GoldOre
+  defaultMaxStack: 7
+  upgradeLevels:
+  - ingredients:
+    - itemProfile: {fileID: 11400000}
+      itemCount: 2
+    - itemProfile: {fileID: 11400000, guid: e1cbb8868231a7741b57de0172bc4391, type: 2}
+      itemCount: 2
