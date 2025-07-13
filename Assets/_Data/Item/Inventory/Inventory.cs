@@ -11,9 +11,9 @@ public class Inventory : SaiMonoBehaviour
     protected override void Start()
     {
         base.Start();
-        this.AddItem(ItemCode.CopperSword, 1);
-        this.AddItem(ItemCode.GoldOre, 10);
-        this.AddItem(ItemCode.IronOre, 10);
+        //this.AddItem(ItemCode.CopperSword, 1);
+        //this.AddItem(ItemCode.GoldOre, 10);
+        //this.AddItem(ItemCode.IronOre, 10);
     }
 
     public virtual bool AddItem(ItemInventory itemInventory)
@@ -32,11 +32,6 @@ public class Inventory : SaiMonoBehaviour
         if (this.IsInventoryFull()) return false;
 
         ItemInventory item = itemPicked.Clone();
-
-        //ItemInventory item = new ItemInventory();
-        //item.itemProfile = itemPicked.itemProfile;
-        //item.itemCount = itemPicked.itemCount;
-        //item.upgradeLevel = itemPicked.upgradeLevel;
 
         this.items.Add(item);
         return true;
