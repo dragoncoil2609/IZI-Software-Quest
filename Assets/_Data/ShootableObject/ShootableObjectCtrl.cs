@@ -20,6 +20,12 @@ public abstract class ShootableObjectCtrl : SaiMonoBehaviour
     [SerializeField] protected ObjMovement objMovement;
     public ObjMovement ObjMovement => objMovement;
 
+    [SerializeField] protected ObjLookAtTarget objLookAtTarget;
+    public ObjLookAtTarget ObjLookAtTarget => objLookAtTarget;
+
+    [SerializeField] protected Spawner spawner;
+    public Spawner Spawner => spawner;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -28,6 +34,15 @@ public abstract class ShootableObjectCtrl : SaiMonoBehaviour
         this.LoadSO();
         this.LoadObjShooting();
         this.LoadObjMovement();
+        this.LoadObjLookAtTarget();
+        this.LoadSpawner();
+    }
+
+    protected virtual void LoadSpawner()
+    {
+        if (this.spawner != null) return;
+        this.spawner = transform.parent?.parent?.GetComponent<Spawner>();
+        Debug.LogWarning(transform.name + ": LoadSpawner", gameObject);
     }
 
     protected virtual void LoadModel()
@@ -49,6 +64,13 @@ public abstract class ShootableObjectCtrl : SaiMonoBehaviour
         if (this.objMovement != null) return;
         this.objMovement = GetComponentInChildren<ObjMovement>();
         Debug.LogWarning(transform.name + ": LoadObjMovement", gameObject);
+    }
+
+    protected virtual void LoadObjLookAtTarget()
+    {
+        if (this.objLookAtTarget != null) return;
+        this.objLookAtTarget = GetComponentInChildren<ObjLookAtTarget>();
+        Debug.LogWarning(transform.name + ": LoadObjLookAtTarget", gameObject);
     }
 
     protected virtual void LoadDespawn()
